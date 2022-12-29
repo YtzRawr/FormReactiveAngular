@@ -1,0 +1,12 @@
+<h2>Inicia sesion</h2>
+<form [formGroup]="loginForm">
+    <label for="email">
+        Email
+        <input type="email" name="email" formControlName="email"/>
+    </label>
+    <label>
+        Password
+        <input type="password" name="password"/>
+    </label>
+</form>
+<button (click)="signIn()">Iniciar sesion</button>

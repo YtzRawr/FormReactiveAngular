@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
-import { LoginCredentials } from "../login/login-credentials";
+import { LoginCredentials } from "./login/login-credentials";
 
 
 @Injectable({
