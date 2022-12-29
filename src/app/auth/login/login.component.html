@@ -1,12 +1,19 @@
 <h2>Inicia sesion</h2>
 <form [formGroup]="loginForm">
-    <label for="email">
-        Email
-        <input type="email" name="email" formControlName="email"/>
-    </label>
+    <div>
+        <label for="email">
+            Email
+            <input type="email" name="email" formControlName="email"/>
+        </label>
+    </div>
+  <div>
     <label>
         Password
-        <input type="password" name="password"/>
+        <input type="password" name="password" formControlName="password" />
     </label>
+  </div>
+    <div>
+        <button (click)="signIn()" type="submit">Iniciar sesion</button>
+    </div>  
 </form>
-<button (click)="signIn()">Iniciar sesion</button>
+<!-- <pre>{{ loginForm.value | json }}</pre> -->

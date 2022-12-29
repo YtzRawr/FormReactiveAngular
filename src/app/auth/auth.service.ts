@@ -1,28 +1,28 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
-import { LoginCredentials } from "./login/login-credentials";
-
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { LoginCredentials } from './login/login-credentials';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
-export class AuthService{
-    private loggedIn = new BehaviorSubject<boolean>(true);
-    loggedIn$ = this.loggedIn.asObservable();
+export class AuthService {
+  private loggedIn = new BehaviorSubject<boolean>(true); //TODO: revert to false after formsVideo;
+  loggedIn$ = this.loggedIn.asObservable();
 
-    constructor(private router: Router){}
+  constructor(private router: Router) {}
 
-    logIn(credentials: LoginCredentials): void{
-        this.loggedIn.next(true);
-        this.redirectToHome();
-    }
-    logOut(): void{
-        this.loggedIn.next(false);
-        this.redirectToHome();
-    }
+  logIn(credentials: LoginCredentials): void {
+    this.loggedIn.next(true);
+    this.redirectToHome();
+  }
 
-    private redirectToHome(): void {
-        this.router.navigate(['/']);
-    }
+  logOut(): void {
+    this.loggedIn.next(false);
+    this.redirectToHome();
+  }
+
+  private redirectToHome(): void {
+    this.router.navigate(['/']);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
@@ -17,7 +18,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   
   signIn(): void {
-    this.authService.logIn
+    const credentials = this.loginForm.value;
+    this.authService.logIn(credentials);
+  }
+
+  updateEmail(): void {
+    const control = this.loginForm.get('email') as FormControl;
+    control.setValue('nuevoValor');
   }
   
 }
