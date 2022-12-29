@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from './login.component';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -8,4 +8,4 @@ import { LoginComponent } from '../login/login.component';
     LoginComponent,
   ]
 })
-export class ExLogin { }
+export class LoginModule { }
